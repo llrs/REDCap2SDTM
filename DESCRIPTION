@@ -1,12 +1,18 @@
-Package: REDCap2SDTM
 Type: Package
+Package: REDCap2SDTM
 Title: REDCap2SDTM
 Version: 1.0
 Date: 2016-02-11
 Author: Ippei Akiya
 Maintainer: Ippei Akiya <ippei.aki@datadriven.jp>
-Description: REDCap2SDTM is a tool of data taransformation from REDCap EDC data to CDSIC SDTM data format.
+Description: REDCap2SDTM is a tool of data taransformation from REDCap EDC
+    data to CDSIC SDTM data format.
 License: LGPL-3
-Depends: R (>= 3.2.3), stringr, xlsx, parsedate, dplyr
+Depends: 
+    dplyr,
+    parsedate,
+    R (>= 3.2.3),
+    stringr,
+    xlsx
 NeedsCompilation: no
 Packaged: 2016-07-24 17:02:48 UTC; ippei
