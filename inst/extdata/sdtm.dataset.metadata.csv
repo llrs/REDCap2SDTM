@@ -1,0 +1,50 @@
+Dataset,Description,Class,Structure,Key.Variables
+DM,Demographics,SPECIAL PURPOSE,One record per subject,"STUDYID,USUBJID"
+HO,Healthcare Encounters,Events,"One record per healthcare encounter per subject, Tabulation",
+VS,Vital Signs,FINDINGS,One record per vital sign measurement per visit per subject,"STUDYID,USUBJID,VSTESTCD,VSDTC,VISITNUM,VSPOS"
+MH,Medical History,Events,One record per medical history event per subject,"STUDYID,USUBJID,MHDECOD"
+SU,Substance Use,Interventions,One record per substance type per reported occurrence per subject,"STUDYID,USUBJID,SUTRT,SUSTDTC"
+LB,Laboratory Test Results,Findings,One record per analyte per planned time point number per time point reference per visit per subject,"STUDYID,USUBJID,LBTESTCD,LBSPEC,VISITNUM,LBTPTREF,LBTPTNUM"
+QS,Questionnaire,Findings,One record per questionnaire per question per time point per visit per subject,"STUDYID,USUBJID,QSCAT,QSTESTCD,VISITNUM,QSTPTREF,QSTPTNUM"
+CO,Comments,SPECIAL PURPOSE,One record per comment per subject,"STUDYID,USUBJID,COSEQ"
+SE,Subject Elements,SPECIAL PURPOSE,One record per actual Element per subject,"STUDYID,USUBJID,ETCD,SESTDTC"
+SV,Subject Visits,SPECIAL PURPOSE,One record per actual visit per subject,"STUDYID,USUBJID,VISITNUM"
+CM,Concomitant Medications,Interventions,One record per recorded medication occurrence or constant-dosing interval per subject.,"STUDYID,USUBJID,CMTRT,CMSTDTC"
+EX,Exposure,Interventions,One record per constant dosing interval per subject,"STUDYID,USUBJID,EXTRT,EXSTDTC"
+PR,Procedures,Interventions,"One record per recorded procedure per occurrence per subject, Tabulation",
+EC,Exposure as Collected,Interventions,"One record per protocol-specified study treatment, collected-dosing interval, per subject, per mood
+Tabulation",
+AE,Adverse Events,Events,One record per adverse event per subject,"STUDYID,USUBJID,AEDECOD,AESTDTC"
+DS,Disposition,Events,One record per disposition status or protocol milestone per subject,"STUDYID,USUBJID,DSDECOD,DSSTDTC"
+DV,Protocol Deviations,Events,One record per protocol deviation per subject,"STUDYID,USUBJID,DVTERM,DVSTDTC"
+CE,Clinical Events,Events,One record per event per subject,"STUDYID,USUBJID,CETERM,CESTDTC"
+EG,ECG Test Results,Findings,One record per ECG observation per time point per visit per subject,"STUDYID,USUBJID,EGTESTCD,VISITNUM,EGTPTREF,EGTPTNUM"
+IE,Inclusion/Exclusion Criteria Not Met,Findings,One record per ECG observation per time point per visit per subject,"STUDYID,USUBJID,IETESTCD"
+PE,Physical Examination,Findings,One record per body system or abnormality per visit per subject,"STUDYID,USUBJID,PETESTCD,VISITNUM"
+SC,Subject Characteristics,Findings,One record per characteristic per subject,"STUDYID,USUBJID,SCTESTCD"
+DA,Drug Accountability,Findings,One record per drug accountability finding per subject,"STUDYID,USUBJID,DATESTCD,DADTC"
+MB,Microbiology Specimen,Findings,One record per microbiology specimen finding per time point per visit per subject,"STUDYID,USUBJID,MBTESTCD,VISITNUM,MBTPTREF,MBTPTNUM"
+MS,Microbiology Susceptibility,Findings,One record per microbiology susceptibility test (or other organismrelated finding) per organism found in MB,"STUDYID,USUBJID,MSTESTCD,VISITNUM,MSTPTREF,MSTPTNUM"
+PC,Pharmacokinetic Concentrations,Findings,"One record per analyte per planned time point number per time point reference per visit per subject""","STUDYID,USUBJID,PCTESTCD,VISITNUM,PCTPTREF,PCTPTNUM"
+PP,Pharmacokinetic Parameters,Findings,One record per PK parameter per timeconcentration profile per modeling method per subject,"STUDYID,USUBJID,PPTESTCD,PPCAT,VISITNUM,PPTPTREF"
+FA,Findings About Events or Interventions,Findings,One record per finding per object per time point per time point reference per visit per subject,"STUDYID,USUBJID,FATESTCD,FAOBJ,VISITNUM,FATPTREF,FATPTNUM"
+TA,Trial Arms,Trial Design,One record per planned Element per Arm,"STUDYID,ARMCD,TAETORD"
+TE,Trial Elements,Trial Design,One record per planned Element,"STUDYID,ETCD"
+TV,Trial Visits,Trial Design,One record per planned Visit per Arm,"STUDYID,VISITNUM,ARMCD"
+TI,Trial Inclusion/Exclusion Criteria,Trial Design,One record per I/E criterion,"STUDYID,IETESTCD"
+TS,Trial Summary,Trial Design,One record per trial summary parameter value,"STUDYID,TSPARMCD,TSSEQ"
+RELREC,Related Records,"Special-Purpose
+Datasets","One record per related record, group of records or datasets","STUDYID,RDOMAIN,USUBJID,IDVAR,IDVARVAL,RELID"
+SUPP--,Supplemental Qualifiers for [domain name],"Special-Purpose
+Datasets","One record per IDVAR,IDVARVAL, and QNAM value per subject","STUDYID,RDOMAIN,USUBJID,IDVAR,IDVARVAL,QNAM"
+DD,Death Details,Findings,"One record per finding per subject, Tabulation",
+IS,Immunogenicity Specimen Assessment,Findings,"One record per test per visit per subject, Tabulation",
+MI,Microscopic Findings,Findings,"One record per finding per specimen per subject, Tabulation",
+MO,Morphology,Findings,"One record per Morphology finding per location per time point per visit per subject, Tabulation",
+RP,Reproductive System Findings,Findings,"One record per Reproductive System Finding per time point per visit per subject, Tabulation",
+SS,Subject Status,Findings,"One record per finding per visit per subject, Tabulation",
+SR,Skin Response,Findings,"One record per test per visit per subject, Tabulation",
+TD,Trial Disease Assessment,Trial Design,One record per planned constant assessment period,
+TU,Tumor Identification,Findings,"One record per identified tumor per subject per assessor, Tabulation",
+RS,Disease Response,Findings,"One record per response assessment per visit per subject per assessor, Tabulation",
+TR,Tumor Results,Findings,"One record per tumor measurement/assessment per visit per subject per assessor, Tabulation",

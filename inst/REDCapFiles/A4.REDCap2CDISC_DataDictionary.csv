@@ -1,0 +1,55 @@
+Variable / Field Name,Form Name,Section Header,Field Type,Field Label,"Choices, Calculations, OR Slider Labels",Field Note,Text Validation Type OR Show Slider Number,Text Validation Min,Text Validation Max,Identifier?,Branching Logic (Show field only if...),Required Field?,Custom Alignment,Question Number (surveys only),Matrix Group Name,Matrix Ranking?,Field Annotation
+usubjid,demographics,,text,Unique Subject ID,,,,,,,,y,,,,,
+inhsp_d,demographics,<font size='+2'>1. Pre-Operative</font><br><br><font color='blue'>*** Patient Background</font>,text,Date of Admission,,,date_ymd,,,,,y,,,,,SDTM:IT.HO.HOSTDTC;
+sex,demographics,,radio,Sex,"1, Male | 2, Female",,,,,,,y,RH,,,,SDTM:IT.DM.SEX;
+height,demographics,,text,Height,,(cm) @*round-off after the decimal point,number,120,200,,,y,,,,,SDTM:IT.VS.VSORRES.HEIGHT;
+weight,demographics,,text,Weight,,(kg) @*round-off after the decimal point,number,25,150,,,y,,,,,SDTM:IT.VS.VSORRES.WEIGHT;
+bmi,demographics,,calc,BMI(Automated Calculation),round([weight]/(([height]/100)*([height]/100))),,,,,,,,,,,,SDTM:IT.VS.VSORRES.BMI;
+desc_dm,demographics,,descriptive,"<font color=blue>Once data entry is completed, please select ""Complete"" status and click the Save button. In the case of temporarily saved, you can choose ""Incomplete"" status. But please ""Complete"" status eventually.</font>",,,,,,,,,,,,,
+ht,past_medical_history,<font color='blue'>*** Past Medical History</font>,radio,Hyper tension(HT),"0, No | 1, Yes",,,,,,,y,RH,,,,SDTM:IT.MH.MHTERM;
+dm,past_medical_history,,radio,Diabetes (DM),"0, No | 1, Yes",,,,,,,y,RH,,,,SDTM:IT.MH.MHTERM;
+hl,past_medical_history,,radio,Hyperlipidemia(HL),"0, No | 1, Yes",,,,,,,y,RH,,,,SDTM:IT.MH.MHTERM;
+smoke,past_medical_history,,radio,Smoking withing the past 6 months,"0, No | 1, Yes",,,,,,,y,RH,,,,SDTM:IT.SU.SUTRT;
+desc_pmh,past_medical_history,,descriptive,"<font color=blue>Once data entry is completed, please select ""Complete"" status and click the Save button.
+In the case of temporarily saved, you can choose ""Incomplete"" status. But please ""Complete"" status eventually.</font>",,,,,,,,,,,,,
+desc_taaimg,aortic_aneurysm_type,<font color='blue'>*** Classification of aortic aneurysm</font>,descriptive,Image,,,,,,,,,,,,,
+taatype,aortic_aneurysm_type,,radio,Please select a classification of aneurysms,"1, Aneurysm of the descending aorta | 2, I | 3, II | 4, III | 5, IV | 6, V",,,,,,,y,,,mg_taatype,,SDTM:IT.MH.MHTERM;
+desc_aa,aortic_aneurysm_type,,descriptive,"<font color=blue>Once data entry is completed, please select ""Complete"" status and click the Save button. In the case of temporarily saved, you can choose ""Incomplete"" status. But please ""Complete"" status eventually.</font>",,,,,,,,,,,,,
+lbbio_yn,lab_test_results,<font color='blue'>*** Blood Test</font>,radio,Did the laboratory tests performed?,"1, Yes | 0, No",,,,,,,y,RH,,,,
+lbbio_d,lab_test_results,,text,Date of blood collection,,,date_ymd,,,,[lbbio_yn] = '1',y,,,,,SDTM:IT.LB.LBDTC;
+tch,lab_test_results,,text,Total cholesterol (T-cho),,(mg/dL),number,100,400,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.CHOL.LBCAT.CHEMISTRY.LBSPEC.BOOD;
+fbs,lab_test_results,,text,Fasting blood sugar (FBS),,(mg/dL),number,50,300,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.GLUC.LBCAT.CHEMISTRY.LBSPEC.BOOD;
+cre,lab_test_results,,text,Serum creatinine (CRE),,(mg/dL) *round-off the value to one decimal places,number,0.1,10,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.CREAT.LBCAT.CHEMISTRY.LBSPEC.SERUM;
+bun,lab_test_results,,text,Urea nitrogen (BUN),,(mg/dL),number,1,100,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.BUN.LBCAT.CHEMISTROY.LBSPEC.BOOD;
+ast,lab_test_results,,text,AST (GOT),,(IU/L),number,1,300,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.AST.LBCAT.CHEMISTROY.LBSPEC.BOOD;
+alt,lab_test_results,,text,ALT (GPT),,(IU/L),number,1,300,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.ALT.LBCAT.CHEMISTROY.LBSPEC.BOOD;
+hb,lab_test_results,,text,Hemoglobin (Hb),,(g/dL) *round-off the value to one decimal places,number,3,20,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.HGB.LBCAT.CHEMISTROY.LBSPEC.BOOD;
+wbc,lab_test_results,,text,White bood cell (WBC),,(/uL),number,100,20000,,[lbbio_yn] = '1',,,,,,SDTM:IT.LB.LBORRES.WBC.LBCAT.CHEMISTROY.LBSPEC.BOOD;
+desc_lb,lab_test_results,,descriptive,"<font color=blue>Once data entry is completed, please select ""Complete"" status and click the Save button. In the case of temporarily saved, you can choose ""Incomplete"" status. But please ""Complete"" status eventually.</font>",,,,,,,,,,,,,
+op_st_dt,in_op,<font size='+2'>2. In-Operative</font>,text,Start date & time of surgery,,,datetime_ymd,,,,,y,,,,,SDTM:IT.PR.PRSTDTC;
+op_en_dt,in_op,,text,End date & time of surgery,,,datetime_ymd,,,,,y,,,,,SDTM:IT.PR.PRENDTC;
+op_type,in_op,,radio,Type of Surgery,"1, Elective surgery | 2, Emergency surgery",,,,,,,y,RV,,,,
+op_method,in_op,,radio,Operative procedure,"1, Thoracotomy laparotomy | 2, Hybrid | 3, Endovascular treatment",,,,,,,y,RV,,,,
+aorta_clamp_yn,in_op,,radio,Aortic cross clamping,"1, Yes | 0, No",,,,,,,y,RH,,,,
+aorta_clamp_time,in_op,,text,Aorta cut-off time,,(mins) *Integer,integer,1,300,,[aorta_clamp_yn] = '1',y,,,,,
+btransfusion,in_op,,text,Blood transfusion volume,,(ml) *Integer,integer,0,100000,,,y,,,,,
+bleed,in_op,,text,Amount of bleeding,,(ml) *Integer,integer,0,100000,,,y,,,,,
+transfusion,in_op,,text,Volume of infusion,,(ml) *Integer,integer,0,100000,,,y,,,,,
+urine,in_op,,text,Urine volume,,(ml) *Integer,integer,0,100000,,,y,,,,,
+desc_end2,in_op,,descriptive,"<font color=blue>Once data entry is completed, please select ""Complete"" status and click the Save button. In the case of temporarily saved, you can choose ""Incomplete"" status. But please ""Complete"" status eventually.</font>",,,,,,,,,,,,,
+icu_in_dt,post_op,<font size='+2'>3. Post-Operative</font>,text,Date & time of ICU admission,,,datetime_ymd,,,,,y,,,,,
+awake_dt,post_op,,text,Date & time of Arousal,,,datetime_ymd,,,,,y,,,,,
+lemove_dt,post_op,,text,Date & time of Lower extremity running confirmation,,,datetime_ymd,,,,,y,,,,,
+icu_out,post_op,,text,Date & time of ICU discharge,,,datetime_ymd,,,,,y,,,,,
+spinal_disorder_yn,post_op,<font color='blue'>*** about Spinal cord injury</font>,radio,Spinal disorder,"0, None | 1, Incomplete | 2, Complete | 99, Indeterminate",,,,,,,y,RV,,,,
+late_motor_paralys_yn,post_op,,radio,Time of emergence,"1, The operator immediately after | 2, Tardive",,,,,,[spinal_disorder_yn] = '1' or [spinal_disorder_yn] = '2',y,RV,,,,
+desc_end3,post_op,,descriptive,"<font color=blue>Once data entry is completed, please select ""Complete"" status and click the Save button. In the case of temporarily saved, you can choose ""Incomplete"" status. But please ""Complete"" status eventually.</font>",,,,,,,,,,,,,
+q10,questionnaire,,radio,Anxiety,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q1;
+q11,questionnaire,,radio,Tightening of the chest,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q2;
+q12,questionnaire,,radio,The depression,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q3;
+q13,questionnaire,,radio,Difficulty in concentrating,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q4;
+q14,questionnaire,,radio,"Restless , tense","0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q5;
+q15,questionnaire,,radio,Hyperkinesis,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q5;
+q16,questionnaire,,radio,Irritability,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q6;
+q17,questionnaire,,radio,Exhaustion,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q7;
+q18,questionnaire,,radio,Fatigue,"0, None | 1, Sometimes | 2, Frequently | 3, Almost always",,,,,,,y,RV,,,,SDTM:IT.QS.QSORRES.Q8;
